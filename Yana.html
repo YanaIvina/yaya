@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missing person announcement</title>
     <link rel="stylesheet" href="css/style.css">
-    <script async>
-        "use strict";
-        getDataFromServer(onSuccess); 
-    </script>
 </head>
 <body>
     <header><h2>MISSING</h2></header>
@@ -56,5 +52,26 @@
     </p>
 
     <footer><span>Additional info</span>: ... </footer>
+
+
+    <script>
+        "use strict";
+        var text = "RACHEL (WAS) IS HERE";
+        async function f() 
+        {
+            let promise = new Promise((resolve, reject) => 
+            {
+                setTimeout(() => resolve(text), 100)
+            }
+            );
+            let result = await promise; 
+            
+            alert(result); 
+        }
+
+        f(); 
+
+    </script>
+
 </body>
 </html>
