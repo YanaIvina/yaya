@@ -6,36 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missing person announcement</title>
     <link rel="stylesheet" href="css/style.css">
-    <script async>
-        "use strict";
-        getDataFromServer(onSuccess); 
-    </script>
 </head>
 <body>
     <header><h2>MISSING</h2></header>
     <main>
-        <img src="Rachel.png" alt="Rachel Amber Age 19">
+        <img src="https://sun9-80.userapi.com/impg/cp0JX_oFAdz3d5ffXP4Lb-hs_r5HAwvgjPWOMg/RDDyKG6l35w.jpg?size=140x191&quality=95&sign=67849d1e25e6d09d4359e9e557b01f46&type=album">
         <section>
-            <p>
+            <div>
                 <span>Missing from:</span> 
-                <br>Arcadia Bay<br>
-            </p>
-
-            <p>
+                Arcadia Bay
+            </div>
+                
+            <div>
                 <span>Date missing:</span> 
-                <br>Mon April 22, 2013 
-            </p>
+                <time>Mon April 22, 2013</time> 
+            </div>
+                
+            <div>
+                <ul>
+                    <span>Other:</span>
+                    <li>Age: 19 years old</li>
+                    <li>Height: 5'5 </li> 
+                    <li>Weight: 110 lbs</li>
+                    <li>Hair: blond</li> 
+                    <li>Eyes: hazel </li>
+                </ul>
+            </div>
 
-            <p>
-                <span>Other:</span> <br>
-                Age: 19 years old <br>
-                Height: 5'5 &nbsp; &nbsp; Weight: 110 lbs <br>
-                Hair: blond &nbsp; &nbsp; Eyes: hazel 
-            </p>
-
-            <p>
+            <div>
                 Tattoo on calf of a dragon and a star on the inside of the left wrist.
-            </p>
+            </div>
         </section>
     </main>
 
@@ -52,6 +52,29 @@
     </p>
 
     <footer><span>Additional info</span>: ... </footer>
+
+    <script>
+        "use strict";
+        var text = "RACHEL (WAS) IS HERE";
+        async function f() 
+        {
+            let promise = new Promise((resolve, reject) => 
+            {
+                setTimeout(() => resolve(text), 100)
+            }
+            );
+            
+            let result = await promise; 
+            
+            alert(result);
+
+        }
+
+        f()
+        .then(res => {console.log(res)})
+        .catch(err => {console.error(err)});
+
+    </script>
 
 </body>
 </html>
