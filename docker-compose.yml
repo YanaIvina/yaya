@@ -1,0 +1,14 @@
+version: '3.0'
+services:
+   nginx:
+    image: nginx:latest
+    container_name: missing-rachel
+    ports:
+      - 80:80
+    volumes:
+      - .:/usr/share/nginx/html
+
+# shell:
+# docker-compose build
+# docker-compose up -d
+# docker logs missing-rachel -f
