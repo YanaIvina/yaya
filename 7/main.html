@@ -1,0 +1,15 @@
+<!DOCKTYPE html>
+<html>
+<head>
+    <title>Чат с веб-сокетом</title>
+</head>
+<body>
+    <script>
+        let ws = new WebSocket("ws://localhost:8080");
+        //выводим новые сообщения в консоль
+        ws.onmessage = ({data}) => { console.log(data); }
+        //отправляем сообщение
+        ws.onopen = () => ws.send('Ara-ara');
+    </script>
+</body>
+</html>
