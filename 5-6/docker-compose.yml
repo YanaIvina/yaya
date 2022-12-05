@@ -1,14 +1,34 @@
 version: '3.0'
 services:
+  http-task:
+    image: http-task:latest
+    links: 
+      - redis
+      - broker
+    ports: 
+      - '8901:8901'
+    healthcheck:
+      test:  curl --fail http://127.0.0.1:8901/healthcheck || exit 1
+      interval: 120s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+
+  work-task:
+    image: work-task:latest
+    links: 
+      - redis
+      - broker
+  
   zookeeper:
-      image: confluentinc/cp-zookeeper:6.1.1
-      hostname: zookeeper
-      container_name: zookeeper
-      ports:
-        - "2181:2181"
-      environment:
-        ZOOKEEPER_CLIENT_PORT: 2181
-        ZOOKEEPER_TICK_TIME: 2000
+    image: confluentinc/cp-zookeeper:6.1.1
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
   broker:
     image: confluentinc/cp-server:6.1.1
     hostname: broker
